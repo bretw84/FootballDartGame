@@ -1,9 +1,10 @@
 class Game {
 
-    constructor(players) {
+    constructor(numOfPlayers) {
 
-        this.players = players;
-        return players;
+		this.players = []
+        this.numOfPlayers = numOfPlayers;
+        return numOfPlayers;
 
     }//END constructor
 
