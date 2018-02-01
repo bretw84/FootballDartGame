@@ -26,15 +26,16 @@ $(document).ready(function() {
             $('#numPlayersBox').addClass('hide');
             $('#playerDetails').removeClass('hide');
             var game = new Game(numPlayers);
-            //console.log(game.numPlayers);
-
-
+            console.log(game.numPlayers);
+			
+			for(var i=1; i<parseInt(game.numPlayers)+1; i++) {
+				console.log('#player'+i+'Box');
+				$('#playersRow').append('<div id="player'+i+'Box" class="col-md-3"><label>Player '+i+' Name</label><div><input type="text" id="player'+i+'" class="form-control" placeholder="Enter Player '+i+' Name" /></div></div>');
+			}
 
         }
 
     });//END numPlayersButton click funcion
-
-
 
 });//END document.ready
 
