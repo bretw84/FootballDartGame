@@ -35,3 +35,9 @@ body {
     position: relative;
     top: -2px;
 }
+
+#mainWrapper label {
+	margin:10px 0 0 0;
+}
+
+#startGame {margin-top:10px;}
