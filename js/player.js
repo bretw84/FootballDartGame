@@ -1,8 +1,10 @@
 class Player {
 
-    constructor(name) {
+    constructor(id,player) {
 
-        this.name=name;
+        this.player=player;
+        this.id=id;
+        this.name;
         this.q1=0;
         this.q2=0;
         this.q3=0;
