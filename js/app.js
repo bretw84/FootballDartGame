@@ -1,4 +1,6 @@
 $(document).ready(function() {
+	
+	var game = 0;
 
     $('#newGame').click(function() {
         $(this).addClass('hide');
@@ -25,7 +27,7 @@ $(document).ready(function() {
 
             $('#numPlayersBox').addClass('hide');
             $('#playerDetails').removeClass('hide');
-            var game = new Game(numPlayers);
+            game = new Game(numPlayers);
 			
 			for(var i=1; i<parseInt(game.numPlayers)+1; i++) {
 				$('#playersRow').append('<div id="player'+i+'Box" class="col-md-3"><label>Player '+i+' Name</label><div><input type="text" id="player'+i+'" class="form-control" placeholder="Enter Player '+i+' Name" /></div></div>');
@@ -33,23 +35,23 @@ $(document).ready(function() {
 
         }//END validation
 
-        $('#startGame').click(function() {
-
-            $('#playerDetails').addClass('hide');
-            $('#boxScore,#mainGame').removeClass('hide');
-    
-            for(var i=1; i<parseInt(game.numPlayers)+1; i++) {
-                game.player['player'+i] = new Player(i,"player"+i);
-                game.player['player'+i].name = $('#player'+i).val();
-                console.log(game.player['player'+i].id);
-                console.log(game.player['player'+i].player);
-                console.log(game.player['player'+i].name);
-                $('#scoreBoard tbody').append('<tr id="player'+i+'Row"><td>'+game.player['player'+i].name+'</td><td id="player'+i+'q1">--</td><td id="player'+i+'q2">--</td><td id="player'+i+'q3">--</td><td id="player'+i+'q4">--</td><td id="player'+i+'score">0</td></tr>');
-            }
-    
-        });//END startGame click function
-
     });//END numPlayersButton click funcion
+
+	$('#startGame').click(function() {
+
+		$('#playerDetails').addClass('hide');
+		$('#boxScore,#mainGame').removeClass('hide');
+
+		for(var i=1; i<parseInt(game.numPlayers)+1; i++) {
+			game.player['player'+i] = new Player(i,"player"+i);
+			game.player['player'+i].name = $('#player'+i).val();
+			console.log(game.player['player'+i].id);
+			console.log(game.player['player'+i].player);
+			console.log(game.player['player'+i].name);
+			$('#scoreBoard tbody').append('<tr id="player'+i+'Row"><td>'+game.player['player'+i].name+'</td><td id="player'+i+'q1">--</td><td id="player'+i+'q2">--</td><td id="player'+i+'q3">--</td><td id="player'+i+'q4">--</td><td id="player'+i+'score">0</td></tr>');
+		}
+
+	});//END startGame click function
 
 });//END document.ready
 
