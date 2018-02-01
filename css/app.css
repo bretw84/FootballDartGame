@@ -25,3 +25,13 @@ body {
 #heading {color:#001c88;}
 
 .hide {display:none;}
+
+.form-control {
+    display:inline-block;
+    max-width:320px;
+}
+
+#numPlayersButton {
+    position: relative;
+    top: -2px;
+}

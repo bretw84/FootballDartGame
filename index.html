@@ -25,6 +25,31 @@
         <div id="mainWrapper">
 
             <h1 id="heading" class="h3">Football Dart Game</h1><hr>
+
+            <div id="newGame" class="btn btn-primary">New Game</div>
+
+            <!-- Number of Players Section -->
+            <section id="numPlayersBox" class="hide">
+                <h2 class="h4">How many players?
+                    <small class="text-muted">1-8 Players</small>
+                </h2>
+                <input type="number" id="numPlayers" class="form-control" min="1" max="8" placeholder="Enter number of players" />
+                <button id="numPlayersButton" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i></button>
+            </section>
+            <!-- /END -->
+
+            <!-- Player Detaials Section -->
+            <section id="playerDetails" class="hide">
+                <h2 class="h4">Player Details</h2>
+                <div class="row">
+                    <div id="player1Box" class="col-md-3 hide">
+                        <label>Player 1 Name</label>
+                        <div><input type="text" id="player1" class="form-control" placeholder="Enter Player 1 Name" /></div>
+                    </div>
+                </div>
+                <button id="startGame" class="btn btn-success">Go!</button>
+            </section>
+            <!-- /END -->
             
         </div>
 
