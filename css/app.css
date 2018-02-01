@@ -1,0 +1,27 @@
+html, body {
+    height:100%;
+    min-height:100%;
+    color:#222222;
+    background-color:#000000;
+}
+
+body {
+    background-image:url('https://bjwtech.com/bg.jpg');
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:bottom;
+}
+
+#mainWrapper {
+    background:#EEEEEE;
+    max-width:1000px;
+    margin:0 auto;
+    box-shadow:0 0 12px 0 #000000;
+    padding:20px;
+    height:100%;
+    position:relative;
+}
+
+#heading {color:#001c88;}
+
+.hide {display:none;}
