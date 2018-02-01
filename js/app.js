@@ -8,5 +8,4 @@ game.players['player1'].addPoints(1,7);
 game.players['player1'].addPoints(2,10);
 game.players['player1'].addPoints(3,14);
 
-
 console.log(game.players['player1'].score);
