@@ -41,3 +41,7 @@ body {
 }
 
 #startGame {margin-top:10px;}
+
+#scoreBoard tr:nth-child(even) {
+    background:#555555;
+}
