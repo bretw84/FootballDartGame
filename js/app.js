@@ -51,7 +51,15 @@ $(document).ready(function() {
         }
         
         $('#turnButton').click(function() {
-            turn + 1;
+            turn++;
+			if(turn == game.numPlayers) {
+				turn = 1;
+				quarter++;
+			}
+			if(quarter == 4) {
+				turn=1;
+				quarter=1;
+			}
             console.log('Turn: '+turn);
             console.log('quarter: '+quarter);
         });
