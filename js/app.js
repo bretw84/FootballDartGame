@@ -1,6 +1,8 @@
 $(document).ready(function() {
 	
-	var game = 0;
+    var game = 0;
+    var quarter = 1;
+    var turn = 1;
 
     $('#newGame').click(function() {
         $(this).addClass('hide');
@@ -46,7 +48,13 @@ $(document).ready(function() {
 			game.player['player'+i] = new Player(i,"player"+i);
 			game.player['player'+i].name = $('#player'+i).val();
 			$('#scoreBoard tbody').append('<tr id="player'+i+'Row"><td>'+game.player['player'+i].name+'</td><td id="player'+i+'q1">--</td><td id="player'+i+'q2">--</td><td id="player'+i+'q3">--</td><td id="player'+i+'q4">--</td><td id="player'+i+'score">0</td></tr>');
-		}
+        }
+        
+        $('#turnButton').click(function() {
+            turn + 1;
+            console.log('Turn: '+turn);
+            console.log('quarter: '+quarter);
+        });
 
 	});//END startGame click function
 
