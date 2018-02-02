@@ -45,9 +45,6 @@ $(document).ready(function() {
 		for(var i=1; i<parseInt(game.numPlayers)+1; i++) {
 			game.player['player'+i] = new Player(i,"player"+i);
 			game.player['player'+i].name = $('#player'+i).val();
-			console.log(game.player['player'+i].id);
-			console.log(game.player['player'+i].player);
-			console.log(game.player['player'+i].name);
 			$('#scoreBoard tbody').append('<tr id="player'+i+'Row"><td>'+game.player['player'+i].name+'</td><td id="player'+i+'q1">--</td><td id="player'+i+'q2">--</td><td id="player'+i+'q3">--</td><td id="player'+i+'q4">--</td><td id="player'+i+'score">0</td></tr>');
 		}
 
