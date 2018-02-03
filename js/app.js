@@ -233,13 +233,19 @@ $(document).ready(function() {
         var hightestScore = 0;
         var winner = '';
 
-        for(var i=1; i<parseInt(game.numPlayers)+1; i++) {
-            scores.push(game.player['player'+i].score);
+        for(var i=1; i < parseInt(game.numPlayers)+1; i++) {
+            //Since this came from the input, its a string, but Math needs numbers
+            scores.push(parseInt(game.player['player'+i].score));
         }
+        /*  This is a complicated answer. It took me like 10 minutes to figure out what
+            The heck the problem was too. This is one of those bleeding edge javascript
+            stuff. More or less you cant pass an array to it, you have to pass individual
+            parameters. Below is whats called the "Spread" operator. It takes an array and
+            converts them into entries.
+            Math.max([1,2,3]) becomes Math.Max(1,2,3). Its a really odd javascript thing.
 
-        //for(var i=0; i<scores.length; i++) {
-            highestScore = Math.max(scores);
-        //}
+        */
+        highestScore = Math.max(...scores);
 
         console.log('The highest score was ' + highestScore);
 
