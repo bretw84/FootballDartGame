@@ -188,7 +188,7 @@ $(document).ready(function() {
                 break;
             }
 
-            ++turn;
+            turn++;
 
             if(turn-1 == game.numPlayers) {
 
