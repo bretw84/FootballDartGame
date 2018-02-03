@@ -4,6 +4,7 @@ class Game {
 
 		this.player = []
         this.numPlayers = numPlayers;
+        this.winner='';
         return numPlayers;
 
     }//END constructor

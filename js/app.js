@@ -24,6 +24,9 @@ $(document).ready(function() {
      */
     var quarter = 1;
 
+    var d = new Date();
+    var hours = d.getHours();
+    var minutes = d.getMinutes();
 
     /**
      * 
@@ -34,7 +37,7 @@ $(document).ready(function() {
      */
     $('#newGame').click(function() {
 
-        console.log('New game button was clicked.')
+        console.log('New game was started at '+hours+':'+minutes);
 
         $(this).addClass('hide');
         $('#numPlayersBox').removeClass('hide');
@@ -58,8 +61,6 @@ $(document).ready(function() {
      * 
      */
     $('#numPlayersButton').click(function() {
-
-        console.log('Number of player button was clicked');
     
         //assign input to numPlayers
         var numPlayers = $('#numPlayers').val();
@@ -98,7 +99,7 @@ $(document).ready(function() {
 				$('#playersRow').append('<div id="player'+i+'Box" class="col-md-3"><label>Player '+i+' Name</label><div><input type="text" id="player'+i+'" class="form-control" placeholder="Enter Player '+i+' Name" /></div></div>');
             }
             
-            console.log('Pending game with '+game.numPlayers+' players is ready for names.');
+            //console.log('Pending game with '+game.numPlayers+' players is ready for names.');
 
             $('#player1').focus();
 
@@ -130,13 +131,10 @@ $(document).ready(function() {
         $('#playerCardHeading').html("Enter " + game.player['player'+turn].name + "'s Quarter "+quarter+" Score.");
         $('#scoreInput').html('<input type="text" id="player'+turn+'ScoreQ'+quarter+'" class="scoreInput"/>');
 
-        console.log("Names, players and ids assigned. Ready to play!!!");
+        console.log("Everything is all set. Ready to play!!!");
 
         console.log('Current Quarter: ' + quarter);
         console.log('Current Turn: '+game.player['player'+turn].name);
-
-        //console.log('Turn: '+turn);
-        //console.log('quarter: '+quarter);
 
         $('#turnLabel').html("Current Turn: <strong style='color:green;'>"+ game.player['player'+turn].name+"</strong>");
         $('#quarterLabel').html('Quarter: ' + quarter);
@@ -152,57 +150,42 @@ $(document).ready(function() {
          */
         $('#turnButton').click(function() {
 
-            console.log('#turnButton clicked');
-
             game.player['player'+turn].addPoints(quarter,parseInt($('#player'+turn+'ScoreQ'+quarter).val()));
-            $('#scoreInput').html('<input type="text" id="player'+turn+'ScoreQ'+quarter+'" class="scoreInput"/>');
-            console.log(game.player['player'+turn].name+' current total score is '+game.player['player'+turn].score);
 
-            switch(turn) {
+            console.log(game.player['player'+turn].name+' scored '+$('#player'+turn+'ScoreQ'+quarter).val()+' points in quarter '+quarter+'.');
+            console.log(game.player['player'+turn].name+"'s Current total score is "+game.player['player'+turn].score);
+
+            switch(quarter) {
                 case 1:
                 $('#player'+turn+'q'+quarter).html(game.player['player'+turn].q1);
                 $('#player'+turn+'score').html(game.player['player'+turn].score);
-                console.log('#player'+turn+'q'+quarter);
-                console.log('#player'+turn+'score');
                 break;
 
                 case 2:
                 $('#player'+turn+'q'+quarter).html(game.player['player'+turn].q2);
                 $('#player'+turn+'score').html(game.player['player'+turn].score);
-                console.log('#player'+turn+'q'+quarter);
-                console.log('#player'+turn+'score');
                 break;
 
                 case 3:
                 $('#player'+turn+'q'+quarter).html(game.player['player'+turn].q3);
                 $('#player'+turn+'score').html(game.player['player'+turn].score);
-                console.log('#player'+turn+'q'+quarter);
-                console.log('#player'+turn+'score');
                 break;
 
                 case 4:
                 $('#player'+turn+'q'+quarter).html(game.player['player'+turn].q4);
                 $('#player'+turn+'score').html(game.player['player'+turn].score);
-                console.log('#player'+turn+'q'+quarter);
-                console.log('#player'+turn+'score');
                 break;
             }
 
             turn++;
 
             if(turn-1 == game.numPlayers) {
-
-                if(quarter == 5) {
-                    console.log('Game Over');
-                    $('#mainGame').html('<h1>And the winner is...</h1>');
-                    $('#resetGame').removeClass('hide');
-                }
                 
 				turn = 1;
                 quarter++;
-
-                // console.log('Current Quarter: ' + quarter);
-                // console.log('Current Turn: '+game.player['player'+turn].name);
+                
+                console.log('Current Quarter: ' + quarter);
+                console.log('Current Turn: '+game.player['player'+turn].name);
 			}
 
             $('#turnLabel').html("Current Turn: <strong style='color:green;'>"+ game.player['player'+turn].name+"</strong>");
@@ -212,14 +195,20 @@ $(document).ready(function() {
             $('#scoreInput').html('<input type="text" id="player'+turn+'ScoreQ'+quarter+'" class="scoreInput"/>');
             $('.scoreInput').focus();
 			
-			if(quarter == 5) {
+			if(parseInt(quarter) == 5) {
                 console.log('Game Over');
-                $('#mainGame').html('<h1>And the winner is...</h1>');
+                console.log(getWinner());
+                $('#quarterLabel').html('Final Score');
+                $('#mainGame').html('<h1>Game Over.<br><strong style="color:green;text-transform:uppercase;">'+game.winner+'</strong> is the winner!!!</h1>');
                 $('#resetGame').removeClass('hide');
-            }
+                
+            } else {
             
-            // console.log('Current Quarter: ' + quarter);
-            // console.log('Current Turn: '+game.player['player'+turn].name);
+                console.log('Current Quarter: ' + quarter);
+                console.log('Current Turn: '+game.player['player'+turn].name);
+
+            }
+
 
             /**
              * 
@@ -231,9 +220,39 @@ $(document).ready(function() {
                 window.location.reload();
             });//END resetButton click function
 
+
+            
+
         });//END turnButton click function
 
-	});//END startGame click function
+    });//END startGame click function
+
+
+    function getWinner() {
+        var scores = [];
+        var hightestScore = 0;
+        var winner = '';
+
+        for(var i=1; i<parseInt(game.numPlayers)+1; i++) {
+            scores.push(game.player['player'+i].score);
+        }
+
+        //for(var i=0; i<scores.length; i++) {
+            highestScore = Math.max(scores);
+        //}
+
+        console.log('The highest score was ' + highestScore);
+
+        for(var i=1; i<parseInt(game.numPlayers)+1; i++) {
+            if(game.player['player'+i].score == highestScore) {
+                game.winner = game.player['player'+i].name;
+            }
+        }
+
+        console.log('The winner of the game is... ' + game.winner + '!!!');
+        
+    }//end getWinner function
+    
 
 });//END document.ready
 
