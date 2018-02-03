@@ -33,7 +33,7 @@
                 <h2 class="h4">How many players?
                     <small class="text-muted">1-8 Players</small>
                 </h2>
-                <input type="number" id="numPlayers" class="form-control" min="1" max="8" placeholder="Enter number of players" />
+                <input type="number" id="numPlayers" class="form-control" min="1" max="8" value="2" />
                 <button id="numPlayersButton" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i></button>
             </section>
             <!-- /END -->
@@ -50,7 +50,7 @@
 
             <!-- Box Score Section -->
             <section id="boxScore" class="hide">
-                <h2 class="h4">Box Score</h2>
+                <h2 class="h4" style="display:inline-block;">Score Board</h2> - <h2 id="quarterLabel" class="h5 text-muted" style="display:inline-block;"></h2>
                 <table id="scoreBoard" class="table table-dark">
                     <thead>
                         <tr>
@@ -59,7 +59,7 @@
                             <th>2nd Quarter</th>
                             <th>3rd Quarter</th>
                             <th>4th Quarter</th>
-                            <th>Current Score</th>
+                            <th>Total Score</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -70,14 +70,23 @@
 
             <!-- Main Game Section -->
             <section id="mainGame" class="hide">
-                <h2 class="h4">Main Game</h2>
+                <h2 id="turnLabel" class="h4"></h2>
                 <div id="gameRow" class="row">
-                    <button id="turnButton">Go</button>
+                    <div id="playerCard">
+
+                        <h2 class="h5" id="playerCardHeading"></h2>
+                        <div id="scoreInput"></div>
+
+                        <button id="turnButton" class="btn btn-success">Submit Score</button>
+                    </div>
+                    
                 </div>
                 <!-- <button id="startGame" class="btn btn-success">Go!</button> -->
             </section>
             <!-- /END -->
             
+            <div id="resetGame" class="btn btn-primary hide">Reset Game</div>
+
         </div>
 
         <script src="./js/game.js"></script>

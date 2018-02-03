@@ -45,3 +45,17 @@ body {
 #scoreBoard tr:nth-child(even) {
     background:#555555;
 }
+
+#playerCard {
+    background: white;
+    padding: 20px;
+    margin-left: 15px;
+    margin-top: 20px;
+    border: 1px solid black;
+    border-radius: 3px;
+    min-width: 400px;
+}
+#playerCard input {
+    width:100%;
+    margin-bottom:8px;
+}
