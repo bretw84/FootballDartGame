@@ -10,7 +10,7 @@
 		<meta name="description" content="This program keeps track of scores on that football dart game.">
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" href="./css/app.css" />
+        <link rel="stylesheet" href="./css/app.css?version=1.0.0" />
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -27,6 +27,28 @@
             <h1 id="heading" class="h3">Football Dart Game</h1><hr>
 
             <div id="newGame" class="btn btn-primary">New Game</div>
+
+            <section id="instructions" class="playerCard">
+                <h2 class="h4">Instructions</h2>
+                <h5 class="h5">Game Instructions</h5>
+                <ul>
+                    <li>Each game can have 1-8 players.</li>
+                    <li>Assign 1 person to be the "Score Keeper" who reads and follows the instructions below.</li>
+                    <li>Each game consists of 4 turns or "Quarters".</li>
+                    <li>Each player throws all four darts per Quarter.</li>
+                    <li>To score points a dart must be <strong>TOUCHING</strong> a football with points <strong>AFTER</strong> all darts have been thrown.</li>
+                    <li>Add up all points after your turn and that's your score for that Quarter.</li>
+                </ul>
+                <h5 class="h5">Score Keeper Instructions</h5>
+                <ul>
+                    <li>Click "New Game" button above.</li>
+                    <li>Enter number of players. Must be 1-8.</li>
+                    <li>Enter the display name for each player.</li>
+                    <li>Enter the score for the current quarter for the current player.</li>
+                    <li>The "Score Board" section shows each players score per quarter & their total score.</li>
+                    <li>When the game is complete the winners name will be displayed. There is no support for ties at this point.</li>
+                </ul>
+            </section>
 
             <!-- Number of Players Section -->
             <section id="numPlayersBox" class="hide">
@@ -51,7 +73,7 @@
             <!-- Box Score Section -->
             <section id="boxScore" class="hide">
                 <h2 class="h4" style="display:inline-block;">Score Board</h2> - <h2 id="quarterLabel" class="h5 text-muted" style="display:inline-block;"></h2>
-                <table id="scoreBoard" class="table table-dark">
+                <table id="scoreBoard" class="table table-dark" border="1" border-color="#FFFFFF">
                     <thead>
                         <tr>
                             <th>Player:</th>
@@ -72,7 +94,7 @@
             <section id="mainGame" class="hide">
                 <h2 id="turnLabel" class="h4"></h2>
                 <div id="gameRow" class="row">
-                    <div id="playerCard">
+                    <div class="playerCard">
 
                         <h2 class="h5" id="playerCardHeading"></h2>
                         <div id="scoreInput"></div>
@@ -86,6 +108,18 @@
             <!-- /END -->
             
             <div id="resetGame" class="btn btn-primary hide">Reset Game</div>
+
+            <div id="statusLogButton" class="hide">Status Log</div>
+            <section id="statusLog" class="alert alert-warning hide">
+                <i id="closeStatusLog" class="fa fa-window-close" aria-hidden="true"></i>
+                <h3 class="h5">Status log</h3><hr>
+            </section>
+
+            <div id="menuButton">
+                <div class="bars"></div>
+                <div class="bars"></div>
+                <div class="bars"></div>
+            </div>
 
         </div>
 

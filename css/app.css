@@ -13,12 +13,13 @@ body {
 }
 
 #mainWrapper {
-    background:#EEEEEE;
+    background:rgba(255,255,255,0.9);
     max-width:1000px;
     margin:0 auto;
     box-shadow:0 0 12px 0 #000000;
     padding:20px;
     height:100%;
+    min-height:100%;
     position:relative;
 }
 
@@ -42,20 +43,111 @@ body {
 
 #startGame {margin-top:10px;}
 
+#scoreBoard {text-align:center;}
+
 #scoreBoard tr:nth-child(even) {
     background:#555555;
 }
 
-#playerCard {
-    background: white;
+.playerCard .h4 {
+    color:#FFFFFF;
+    text-shadow:0 0 1px #000000,0 0 1px #000000,0 0 1px #000000,0 0 1px #000000,0 0 1px #000000;
+}
+
+.playerCard {
+    background: rgba(0,0,0,0.2);
+    color: #000000;
     padding: 20px;
     margin-left: 15px;
     margin-top: 20px;
-    border: 1px solid black;
+    border: 1px solid #000000;
     border-radius: 3px;
-    min-width: 400px;
+    min-width: 294px;
 }
-#playerCard input {
+
+#instructions {
+    background:#FFFFFF !important;
+}
+
+#instructions .h4 {
+    color:#000000 !important;
+    text-shadow:none !important;
+}
+
+.playerCard input {
     width:100%;
     margin-bottom:8px;
+}
+
+#statusLogButton {
+    cursor:pointer;
+    position:absolute;
+    right:20px;
+    top:28px;
+}
+
+#statusLog {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top:0;
+}
+
+#closeStatusLog {
+    position:absolute;
+    top:10px;
+    right:10px;
+    cursor:pointer;
+}
+
+#instructions {
+    background
+}
+
+#menuButton {display:none;}
+
+@media (min-width: 90.063em) {
+
+}
+
+@media (max-width: 90.063em) {
+
+}
+
+@media (max-width: 64.063em) {
+
+}
+
+@media (min-width: 40.063em) and (max-width: 64.063em) {
+
+}
+
+@media (max-width: 40.063em) {
+
+    #instructions ul {padding-left:20px;}
+    #heading {font-size:20px;}
+
+    .playerCard {
+        margin-left:0 !important;
+        padding:10px;
+    }
+    #mainWrapper{padding:5px;}
+
+    #statusLogButton {display:none !important;}
+
+    #menuButton {
+        display:block;
+        position:absolute;
+        top:10px;
+        right:10px;
+    }
+
+    #menuButton .bars {
+        height:5px;
+        width:30px;
+        margin-bottom:4px;
+        background:#000000;
+        cursor:pointer;
+    }
+
 }
