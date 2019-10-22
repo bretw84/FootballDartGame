@@ -6,10 +6,10 @@ html, body {
 }
 
 body {
-    background-image:url('https://bjwtech.com/bg.jpg');
+    background-image:url('../images/bg.jpg');
     background-repeat:no-repeat;
     background-size:cover;
-    background-position:bottom;
+    background-position:top;
 }
 
 #mainWrapper {

@@ -42,9 +42,9 @@
                 <h5 class="h5">Score Keeper Instructions</h5>
                 <ul>
                     <li>Click "New Game" button above.</li>
-                    <li>Enter number of players. Must be 1-8.</li>
-                    <li>Enter the display name for each player.</li>
-                    <li>Enter the score for the current quarter for the current player.</li>
+                    <li>Enter number of players. Must be between 1-8.</li>
+                    <li>Enter the name of each player.</li>
+                    <li>After each turn, enter the score for the current quarter for the current player.</li>
                     <li>The "Score Board" section shows each players score per quarter & their total score.</li>
                     <li>When the game is complete the winners name will be displayed. There is no support for ties at this point.</li>
                 </ul>
@@ -64,7 +64,7 @@
             <section id="playerDetails" class="hide">
                 <h2 class="h4">Player Details</h2>
                 <div id="playersRow" class="row">
-                    
+                    <input type="hidden" class="playerInput"/>
                 </div>
                 <button id="startGame" class="btn btn-success">Go!</button>
             </section>
@@ -108,12 +108,6 @@
             <!-- /END -->
             
             <div id="resetGame" class="btn btn-primary hide">Reset Game</div>
-
-            <div id="statusLogButton" class="hide">Status Log</div>
-            <section id="statusLog" class="alert alert-warning hide">
-                <i id="closeStatusLog" class="fa fa-window-close" aria-hidden="true"></i>
-                <h3 class="h5">Status log</h3><hr>
-            </section>
 
             <div id="menuButton">
                 <div class="bars"></div>
