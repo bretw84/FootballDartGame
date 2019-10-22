@@ -98,7 +98,7 @@ $(document).ready(function() {
 
             // loop through game.numPlayers and create html input boxes to enter each players name
 			for(var i=1; i<parseInt(game.numPlayers)+1; i++) {
-				$('#playersRow').append('<div id="player'+i+'Box" class="col-md-3"><label>Player '+i+' Name</label><div><input type="text" id="player'+i+'" class="form-control" placeholder="Enter Player '+i+' Name" /></div></div>');
+				$('#playersRow').append('<div id="player'+i+'Box" class="col-md-3"><label>Player '+i+' Name</label><div><input type="text" id="player'+i+'" class="form-control playerInput" placeholder="Enter Player '+i+' Name" /></div></div>');
             }
 
             //console.log('Pending game with '+game.numPlayers+' players is ready for names.');
@@ -108,6 +108,23 @@ $(document).ready(function() {
         }//END validation
 
     });//END numPlayersButton click funcion
+
+    $('#numPlayers').keypress(function() {
+        if(event.keyCode === 13) {
+            $('#numPlayersButton').click();
+        }
+    });
+
+    $('.playerInput').keypress(function(event) {
+        if(event.keyCode === 13) {
+            console.log('hit enter');
+            $('#startGame').click();
+        }
+    });
+
+    $('.scoreInput').keypress(function() {
+        $('#turnButton').click();
+    });
 
     /**
      *
@@ -255,26 +272,5 @@ $(document).ready(function() {
         logIt('The winner of the game is... ' + game.winner + '!!!');
 
     }//end getWinner function
-
-    function logIt(status) {
-
-        var show = true;
-
-        if(show == true) {
-            $('#statusLogButton').removeClass('hide');
-            console.log(status);
-            $('#statusLog').append('<p><strong>'+status+'</strong></p>');
-        }
-
-        return true;
-    }
-
-    $('#statusLogButton').click(function() {
-        $('#statusLog').toggleClass('hide');
-    });
-
-    $('#closeStatusLog').click(function() {
-        $('#statusLog').addClass('hide');
-    });
 
 });//END document.ready
